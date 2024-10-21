@@ -6,19 +6,17 @@
     "module": "dist/esm/index.js",
     "types": "dist/esm/index.d.ts",
     "files": [
-        "dist",
-        "LICENSE",
-        "README.md"
+        "dist"
     ],
     "scripts": {
         "prepare": "npm run build",
-        "prepublishOnly": "npm run test && npm run prettier && npm run lint",
-        "build": "npm run build:esm && npm run build:cjs",
+        "prepublishOnly": "npm run test && npm run prettier && npm run lint && npm run build",
+        "version:bump": "tsc ./scripts/versionBump.ts && node ./scripts/versionBump.js",
+        "build": "npm run version:bump && rimraf -rf dist && prettier --write src/ && npm run build:esm && npm run build:cjs",
         "build:esm": "tsc",
-        "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
         "test": "jest --config jestconfig.json",
-        "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-        "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\""
+        "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\""
     },
     "repository": {
         "type": "git",
@@ -27,7 +25,7 @@
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
     },
-    "author": "",
+    "author": "Excelsoft",
     "license": "ISC",
     "devDependencies": {
         "@types/node": "^22.7.4",
