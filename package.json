@@ -6,15 +6,16 @@
     "module": "dist/esm/index.js",
     "types": "dist/esm/index.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "LICENSE",
+        "README.md"
     ],
     "scripts": {
         "prepare": "npm run build",
-        "prepublishOnly": "npm run test && npm run prettier && npm run lint && npm run build",
-        "version:bump": "tsc ./scripts/versionBump.ts && node ./scripts/versionBump.js",
-        "build": "npm run version:bump && rimraf -rf dist && prettier --write src/ && npm run build:esm && npm run build:cjs",
+        "prepublishOnly": "npm run test && npm run prettier && npm run lint",
+        "build": "npm run build:esm && npm run build:cjs",
         "build:esm": "tsc",
-        "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+        "build:cjs": "tsc --module commonjs --outDir dist/cjs",
         "test": "jest --config jestconfig.json",
         "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
         "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\""
@@ -26,7 +27,7 @@
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
     },
-    "author": "Excelsoft",
+    "author": "",
     "license": "ISC",
     "devDependencies": {
         "@types/node": "^22.7.4",
@@ -36,7 +37,20 @@
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "rimraf": "^6.0.1",
-        "typescript": "^5.6.3"
+        "typescript": "^5.6.3",
+        "@testing-library/react": "^16.0.1",
+        "@types/jest": "^29.5.13",
+        "@typescript-eslint/eslint-plugin": "^8.10.0",
+        "@typescript-eslint/parser": "^8.10.0",
+        "eslint": "^9.13.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-react": "^7.37.1",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "jest-canvas-mock": "^2.5.2",
+        "jest-environment-jsdom": "^29.7.0",
+        "prettier": "^3.3.3",
+        "ts-jest": "^29.2.5"
     },
     "dependencies": {
         "@testing-library/react": "^16.0.1",
