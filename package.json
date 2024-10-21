@@ -1,0 +1,40 @@
+{
+    "name": "@allwaysyashwanth/button-component-library",
+    "version": "1.0.0",
+    "description": "An button component library",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "version:bump": "tsc ./scripts/versionBump.ts && node ./scripts/versionBump.js",
+        "build": "npm run version:bump && rimraf -rf dist && prettier --write src/ && npm run build:esm && npm run build:cjs",
+        "build:esm": "tsc",
+        "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
+        "prepublishOnly": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ALLWAYSYASHWANTH/button-component-library.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "author": "Excelsoft",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^22.7.4",
+        "@types/react": "^18.3.11",
+        "@types/react-dom": "^18.3.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.6.2"
+    },
+    "peerDependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    }
+}
