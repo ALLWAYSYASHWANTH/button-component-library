@@ -10,7 +10,7 @@
     ],
     "scripts": {
         "prepare": "npm run build",
-        "prepublishOnly": "npm run prettier && npm run lint && npm run build",
+        "prepublishOnly": "npm run test && npm run prettier && npm run lint && npm run build",
         "version:bump": "tsc ./scripts/versionBump.ts && node ./scripts/versionBump.js",
         "build": "npm run version:bump && rimraf -rf dist && prettier --write src/ && npm run build:esm && npm run build:cjs",
         "build:esm": "tsc",
