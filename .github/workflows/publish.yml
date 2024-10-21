@@ -3,9 +3,9 @@
 name: Node.js Package deploy
 on:
     push:
-        branches: [main]
+        branches: [model]
     pull_request:
-        branches: [main]
+        branches: [model]
 jobs:
     build:
         runs-on: ubuntu-latest
