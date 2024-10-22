@@ -1,6 +1,6 @@
 {
     "name": "@allwaysyashwanth/button-component-library",
-    "version": "1.0.2",
+    "version": "1.0.1",
     "description": "An button component library",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ALLWAYSYASHWANTH/button-component-library.git"
+        "url": "git+https://github.com/ALLWAYSYASHWANTH/react-button-library.git"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"
